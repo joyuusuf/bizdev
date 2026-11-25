@@ -229,5 +229,5 @@ export const tools = [
 
 export const education = [
   { title: "B.Sc. Economics", institution: "Obafemi Awolowo University", year: "2018" },
-  { title: "Software Engineering Training", institution: "SQI College of ICT, Ibadan", year: "2024" },
+  { title: "Software Engineering Training", institution: "SQI College of ICT, Ibadan", year: "2023" },
 ];
