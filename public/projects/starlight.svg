@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#fafaf9"/>
+  <rect x="80" y="70" width="640" height="380" rx="10" fill="#ffffff" stroke="#e7e5e4"/>
+  <rect x="80" y="70" width="640" height="36" rx="10" fill="#f5f5f4"/>
+  <rect x="80" y="96" width="640" height="10" fill="#f5f5f4"/>
+  <circle cx="104" cy="88" r="5" fill="#d6d3d1"/><circle cx="122" cy="88" r="5" fill="#d6d3d1"/><circle cx="140" cy="88" r="5" fill="#d6d3d1"/>
+  <rect x="120" y="150" width="260" height="18" rx="4" fill="#e7e5e4"/>
+  <rect x="120" y="182" width="200" height="12" rx="4" fill="#f0efee"/>
+  <rect x="120" y="230" width="170" height="150" rx="8" fill="#dcfce7"/>
+  <rect x="315" y="230" width="170" height="150" rx="8" fill="#f5f5f4"/>
+  <rect x="510" y="230" width="170" height="150" rx="8" fill="#f5f5f4"/>
+  <text x="400" y="420" text-anchor="middle" font-family="ui-monospace, monospace" font-size="14" fill="#a8a29e">Starlight Marketplace · screenshot placeholder</text>
+</svg>
