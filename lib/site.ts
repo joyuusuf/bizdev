@@ -245,7 +245,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Starlight Farmers & Buyers Marketplace",
-    category: "Marketplace · Frontend",
+    category: "Marketplace · ",
     description:
       "A marketplace connecting farmers with buyers and farm inputs. I worked on the frontend, including page components and responsive layouts.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
@@ -254,7 +254,7 @@ export const projects: Project[] = [
   },
   {
     title: "AgriConnect",
-    category: "Agri-fintech · Frontend",
+    category: "Agri-fintech · ",
     description:
       "A platform that helps smallholder farmers in Nigeria access financing. I built and refined frontend pages such as About and FAQ, and proposed admin dashboard UI improvements.",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
