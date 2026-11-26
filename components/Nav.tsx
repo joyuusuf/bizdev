@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, Menu, Moon, Sun, X } from "lucide-react";
 import { navLinks, site } from "@/lib/site";
@@ -32,6 +32,31 @@ export function Nav() {
     localStorage.setItem("theme", next);
     setTheme(next);
     window.setTimeout(() => document.documentElement.classList.remove("theme-transition"), 400);
+  };
+
+  const closeMobileMenu = () => {
+    document.body.style.overflow = "";
+    setOpen(false);
+  };
+
+  const navigateToSection = (event: MouseEvent<HTMLAnchorElement>) => {
+    const href = event.currentTarget.getAttribute("href");
+    const target = href?.startsWith("#") ? document.getElementById(href.slice(1)) : null;
+    if (!href || !target) {
+      closeMobileMenu();
+      return;
+    }
+
+    event.preventDefault();
+    closeMobileMenu();
+    if (window.location.hash !== href) window.history.pushState(null, "", href);
+
+    window.setTimeout(() => {
+      document.getElementById(href.slice(1))?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
+    }, 250);
   };
 
   useEffect(() => {
@@ -167,7 +192,7 @@ export function Nav() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setOpen(false)}
+                    onClick={navigateToSection}
                     className="nav-mobile-link border-b border-line py-4 text-lg font-medium text-ink"
                   >
                     {link.label}
@@ -177,7 +202,7 @@ export function Nav() {
               <a
                 href={site.resume}
                 download="Jawad-Olamide-Yuusuf-Resume.pdf"
-                onClick={() => setOpen(false)}
+                onClick={closeMobileMenu}
                 className="site-button mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-white shadow-[0_10px_30px_rgb(37_99_235_/_20%)]"
               >
                 <Download className="size-4" aria-hidden />

@@ -24,6 +24,7 @@ export const contact = {
   email: "yuusufjawadolamide67@gmail.com",
   phone: "+234 814 241 7877",
   phoneHref: "tel:+2348142417877",
+  whatsappHref: "https://wa.me/2348142417877",
   linkedin: "https://www.linkedin.com/in/jawad-olamide-yuusuf",
   // Add your GitHub profile URL, e.g. "https://github.com/your-username". Hidden while empty.
   github: "",
@@ -129,11 +130,12 @@ export const crmAreas = [
 ];
 
 export type ExperienceItem = {
-  period: string;
+  period?: string;
   role: string;
-  org: string;
-  meta: string;
+  org?: string;
+  meta?: string;
   points: string[];
+  keySkills?: string[];
 };
 
 // Company names are left out of the first two entries on purpose. Add them here if you want them shown.
@@ -171,6 +173,60 @@ export const experience: ExperienceItem[] = [
     points: [
       "Build and refine frontend pages and components for an agricultural marketplace and farmer financing platform.",
       "Reworked page content and layout to reflect the marketplace focus: farmers, buyers, farm inputs and financing.",
+    ],
+  },
+  {
+    role: "Business Development & Client Outreach",
+    points: [
+      "Identified potential clients and businesses that could benefit from the company's services.",
+      "Researched businesses, decision-makers and contact details to support outreach efforts.",
+      "Drafted personalised outreach messages through email, LinkedIn and other social media platforms.",
+      "Followed up with prospects to maintain communication and encourage business conversations.",
+      "Helped introduce company services to potential clients and build relationships that could lead to business opportunities.",
+    ],
+    keySkills: [
+      "Lead generation",
+      "Prospect research",
+      "Cold outreach",
+      "Follow-ups",
+      "Client communication",
+      "Relationship building",
+    ],
+  },
+  {
+    role: "Social Media Management & Business Visibility",
+    points: [
+      "Managed and prepared social media content to promote business services, products and brand awareness.",
+      "Developed simple content ideas, captions and promotional posts for platforms such as Facebook, Instagram and LinkedIn.",
+      "Helped businesses communicate their services clearly to potential customers through social media.",
+      "Maintained consistency in content presentation and messaging.",
+      "Engaged with online audiences through comments, messages and other interactions to encourage conversations and enquiries.",
+    ],
+    keySkills: [
+      "Social media management",
+      "Content planning",
+      "Copywriting",
+      "Audience engagement",
+      "Brand awareness",
+      "Online communication",
+    ],
+  },
+  {
+    role: "Business Research, Lead Generation & Growth Support",
+    points: [
+      "Researched industries, businesses and potential customers to identify opportunities for business growth.",
+      "Compiled prospect lists to support business outreach and sales activities.",
+      "Identified potential business partners, customers and collaboration opportunities.",
+      "Assisted in communicating business offerings to prospective clients.",
+      "Supported business growth efforts through online research, outreach planning and follow-up communication.",
+    ],
+    keySkills: [
+      "Market research",
+      "Lead generation",
+      "Prospect lists",
+      "Business communication",
+      "Partnership research",
+      "Growth support",
     ],
   },
 ];

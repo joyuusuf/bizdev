@@ -1,5 +1,20 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Download, Mail, MapPin, Phone } from "lucide-react";
+import { forwardRef } from "react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  ClipboardList,
+  Download,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  RefreshCw,
+  Search,
+  UserRound,
+  type LucideProps,
+} from "lucide-react";
 import {
   about,
   alsoBuilt,
@@ -16,63 +31,44 @@ import {
 import { Reveal } from "./Reveal";
 import { ButtonLink, Container, DotList, Eyebrow, Section, SectionHeading } from "./ui";
 
+const processIcons = [Search, UserRound, CheckCircle2, ClipboardList, MessageCircle, RefreshCw];
+
+const WhatsAppIcon = forwardRef<SVGSVGElement, LucideProps>(
+  ({ size = 24, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M20.3 11.7a8.3 8.3 0 0 1-12.2 7.2L3.5 20l1.1-4.3a8.3 8.3 0 1 1 15.7-4Z" />
+      <path d="M8.5 8.2 8 8.7a2 2 0 0 0-.3 2.2 10.1 10.1 0 0 0 5.4 5.4 2 2 0 0 0 2.2-.3l.5-.5-2.4-1.2-1 1a8.3 8.3 0 0 1-3.7-3.7l1-1L8.5 8.2Z" />
+    </svg>
+  ),
+);
+
 /* ---------- Hero ---------- */
 
 export function Hero() {
   return (
     <section id="top" className="pt-14 pb-20 sm:pt-20 sm:pb-24">
-      <Container className="grid items-center gap-12 md:grid-cols-[1.35fr_1fr] md:gap-16">
-        <div>
+      <Container className="grid items-center gap-y-8 md:grid-cols-[1.35fr_1fr] md:gap-x-16 md:gap-y-0">
+        <div className="order-1 md:col-start-1 md:row-start-1">
           <Reveal>
             <Eyebrow>{site.categories.join(" · ")}</Eyebrow>
           </Reveal>
-          <Reveal delay={0.08}>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
-            {site.name}
-          </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-          <p className="mt-6 text-xl leading-snug font-medium text-ink sm:text-2xl">{site.headline}</p>
-          </Reveal>
-          <Reveal delay={0.24}>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{site.intro}</p>
-          </Reveal>
-
-          <Reveal delay={0.32}>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="#work">
-              View my work
-              <ArrowRight className="size-4" aria-hidden />
-            </ButtonLink>
-            <ButtonLink
-              href={site.resume}
-              download="Jawad-Olamide-Yuusuf-Resume.pdf"
-              variant="secondary"
-            >
-              <Download className="size-4" aria-hidden />
-              Download résumé
-            </ButtonLink>
-          </div>
-          </Reveal>
-
-          <Reveal delay={0.4}>
-          <p className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="size-4" aria-hidden />
-              {site.location}
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-40 motion-reduce:hidden" />
-                <span className="relative inline-flex size-2 rounded-full bg-accent" />
-              </span>
-              {site.availability}
-            </span>
-          </p>
-          </Reveal>
         </div>
 
-        <Reveal delay={0.2} className="mx-auto w-full max-w-xs md:max-w-none">
+        <Reveal
+          delay={0.2}
+          className="order-2 mx-auto w-full max-w-xs md:col-start-2 md:row-span-3 md:row-start-1 md:max-w-none"
+        >
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-line bg-soft">
             <Image
               src={site.photo}
@@ -84,6 +80,60 @@ export function Hero() {
             />
           </div>
         </Reveal>
+
+        <div className="order-3 md:col-start-1 md:row-start-2">
+          <Reveal delay={0.08}>
+            <h1 className="mt-0 text-center text-sm font-semibold tracking-tight text-ink sm:text-2xl md:mt-5 md:text-left lg:text-6xl">
+              {site.name}
+            </h1>
+          </Reveal>
+        </div>
+
+        <div className="order-4 md:col-start-1 md:row-start-3">
+          <Reveal delay={0.16}>
+            <p className="mt-0 text-xl leading-snug font-medium text-ink sm:text-2xl md:mt-6">
+              {site.headline}
+            </p>
+          </Reveal>
+          <Reveal delay={0.24}>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              {site.intro}
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.32}>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href="#work">
+                View my work
+                <ArrowRight className="size-4" aria-hidden />
+              </ButtonLink>
+              <ButtonLink
+                href={site.resume}
+                download="Jawad-Olamide-Yuusuf-Resume.pdf"
+                variant="secondary"
+              >
+                <Download className="size-4" aria-hidden />
+                Download résumé
+              </ButtonLink>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.4}>
+            <p className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="size-4" aria-hidden />
+                {site.location}
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <span className="relative flex size-2">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-40 motion-reduce:hidden" />
+                  <span className="relative inline-flex size-2 rounded-full bg-accent" />
+                </span>
+                {site.availability}
+              </span>
+            </p>
+          </Reveal>
+        </div>
       </Container>
     </section>
   );
@@ -129,18 +179,28 @@ export function BusinessDevelopment() {
         lead="A simple, repeatable process for business research, lead generation and outreach. Every lead is checked before anyone is contacted."
       />
 
-      <ol className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-        {processSteps.map((step, i) => (
-          <li key={step.title} className="bg-paper p-6 sm:p-7">
-            <Reveal delay={(i % 3) * 0.1}>
-              <span className="font-mono text-sm font-medium text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>
-            </Reveal>
-          </li>
-        ))}
+      <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {processSteps.map((step, i) => {
+          const Icon = processIcons[i];
+          return (
+            <li key={step.title} className="h-full">
+              <Reveal delay={(i % 3) * 0.1} className="h-full">
+                <article className="lift-card process-step-card flex h-full min-h-56 flex-col rounded-xl border border-line bg-paper p-6 sm:p-7">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-medium tracking-[0.14em] text-accent">
+                      STEP {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="grid size-10 place-items-center rounded-lg bg-accent-soft text-accent">
+                      <Icon className="size-[18px]" strokeWidth={1.8} aria-hidden />
+                    </span>
+                  </div>
+                  <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>
+                </article>
+              </Reveal>
+            </li>
+          );
+        })}
       </ol>
 
       <div id="crm" className="mt-20 scroll-mt-20">
@@ -177,17 +237,21 @@ export function Experience() {
 
       <div className="divide-y divide-line border-y border-line">
         {experience.map((job) => (
-          <Reveal key={`${job.role}-${job.org}`}>
+          <Reveal key={job.role}>
             <article className="grid gap-4 py-8 md:grid-cols-[180px_1fr] md:gap-10">
-              <p className="font-mono text-xs font-medium uppercase tracking-wider text-muted md:pt-1.5">
-                {job.period}
-              </p>
+              {job.period ? (
+                <p className="font-mono text-xs font-medium uppercase tracking-wider text-muted md:pt-1.5">
+                  {job.period}
+                </p>
+              ) : (
+                <span className="hidden md:block" aria-hidden />
+              )}
               <div>
                 <h3 className="text-lg font-semibold tracking-tight text-ink">
                   {job.role}
-                  <span className="font-normal text-muted"> · {job.org}</span>
+                  {job.org ? <span className="font-normal text-muted"> · {job.org}</span> : null}
                 </h3>
-                <p className="mt-1 text-sm text-muted">{job.meta}</p>
+                {job.meta ? <p className="mt-1 text-sm text-muted">{job.meta}</p> : null}
                 <ul className="mt-4 space-y-2.5">
                   {job.points.map((pt) => (
                     <li key={pt} className="flex gap-3 text-sm leading-relaxed text-muted sm:text-[15px]">
@@ -196,6 +260,16 @@ export function Experience() {
                     </li>
                   ))}
                 </ul>
+                {job.keySkills?.length ? (
+                  <div className="mt-5 border-t border-line pt-4">
+                    <p className="font-mono text-xs font-medium uppercase tracking-wider text-muted">
+                      Key skills
+                    </p>
+                    <div className="mt-2">
+                      <DotList items={job.keySkills} />
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </article>
           </Reveal>
@@ -335,6 +409,13 @@ export function Contact() {
   const links = [
     { label: "Email", value: contact.email, href: `mailto:${contact.email}`, icon: Mail, external: false },
     { label: "Phone", value: contact.phone, href: contact.phoneHref, icon: Phone, external: false },
+    {
+      label: "WhatsApp",
+      value: contact.phone,
+      href: contact.whatsappHref,
+      icon: WhatsAppIcon,
+      external: true,
+    },
     contact.linkedin && {
       label: "LinkedIn",
       value: "linkedin.com/in/jawad-olamide-yuusuf",
