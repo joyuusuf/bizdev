@@ -261,18 +261,18 @@ export const projects: Project[] = [
     image: "/projects/agriflex.png",
     url: "https://agriflex.starlightecoenergy.com/",
   },
-  {
-    title: "Kolobuy.ng",
-    category: "E-commerce · Web app",
-    description:
-      "A modern e-commerce platform for discovering and shopping consumer products online.",
-    tech: ["Next.js", "React", "TypeScript"],
-    image: "/projects/kolobuy.png",
-    url: "https://kolobuy.vercel.app/",
-  },
+  // {
+  //   title: "Kolobuy.ng",
+  //   category: "E-commerce · Web app",
+  //   description:
+  //     "A modern e-commerce platform for discovering and shopping consumer products online.",
+  //   tech: ["Next.js", "React", "TypeScript"],
+  //   image: "/projects/kolobuy.png",
+  //   url: "https://kolobuy.vercel.app/",
+  // },
 ];
 
-export const alsoBuilt = ["NovaGlide Tech Solutions web app", "Quantivo crypto trading platform"];
+// export const alsoBuilt = ["NovaGlide Tech Solutions web app", "Quantivo crypto trading platform"];
 
 export const tools = [
   { category: "Research", items: ["Google Search", "LinkedIn", "Facebook Groups", "Online business directories"] },

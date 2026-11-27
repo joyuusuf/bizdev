@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import {
   about,
-  alsoBuilt,
+  // alsoBuilt,
   capabilities,
   contact,
   crmAreas,
@@ -339,11 +339,11 @@ export function Work() {
         ))}
       </div>
 
-      {alsoBuilt.length ? (
+      {/* {alsoBuilt.length ? (
         <p className="mt-8 text-sm text-muted">
           <span className="font-medium text-ink">Also built:</span> {alsoBuilt.join(", ")}.
         </p>
-      ) : null}
+      ) : null} */}
     </Section>
   );
 }
